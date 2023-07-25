@@ -40,6 +40,10 @@ export const ProfileContent = styled.div`
       align-items: baseline;
       gap: 0.5rem;
       height: fit-content;
+
+      &:hover {
+        border-bottom: 1px solid ${(props) => props.theme.blue};
+      }
     }
   }
 `
