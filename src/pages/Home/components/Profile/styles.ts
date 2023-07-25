@@ -14,6 +14,11 @@ export const ProfileContainer = styled.div`
     height: 9.25rem;
     border-radius: 8px;
   }
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 export const ProfileContent = styled.div`
@@ -44,12 +49,20 @@ export const ProfileContent = styled.div`
         border-bottom: 1px solid ${(props) => props.theme.blue};
       }
     }
+
+    @media screen and (max-width: 1024px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 `
 
 export const ProfileInfoContainer = styled.div`
   display: flex;
   gap: 1.5rem;
+  @media screen and (max-width: 1024px) {
+    justify-content: space-between;
+  }
 `
 
 export const Info = styled.div`

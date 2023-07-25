@@ -46,6 +46,11 @@ export const InfosContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 2rem;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 `
 
 export const Info = styled.div`

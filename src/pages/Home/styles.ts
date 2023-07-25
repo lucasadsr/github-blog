@@ -8,6 +8,10 @@ export const PostsContainer = styled.section`
 
   a {
     text-decoration: none;
+
+    @media screen and (max-width: 1024px) {
+      max-width: 100%;
+    }
   }
 `
 
