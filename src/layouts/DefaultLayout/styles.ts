@@ -5,6 +5,6 @@ export const LayoutContainer = styled.div`
     width: 100%;
     max-width: 57rem;
     padding-inline: 1.5rem;
-    margin: 0 auto;
+    margin: -5.3rem auto 0;
   }
 `

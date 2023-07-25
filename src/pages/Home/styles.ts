@@ -4,6 +4,11 @@ export const PostsContainer = styled.section`
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
+
+  a {
+    text-decoration: none;
+  }
 `
 
 export const Post = styled.div`
@@ -29,6 +34,7 @@ export const Post = styled.div`
       max-height: 4rem;
       text-overflow: ellipsis;
       overflow: hidden;
+      color: ${(props) => props.theme['base-title']};
     }
   }
 
@@ -38,6 +44,7 @@ export const Post = styled.div`
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
+    color: ${(props) => props.theme['base-text']};
   }
 
   span {

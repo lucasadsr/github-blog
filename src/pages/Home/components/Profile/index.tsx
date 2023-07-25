@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useContext } from 'react'
 import {
   faArrowUpRightFromSquare,
   faBuilding,
@@ -13,31 +13,10 @@ import {
   ProfileContent,
   ProfileInfoContainer,
 } from './styles'
-import { api } from '../../../../lib/axios'
-
-interface ProfileDataType {
-  login: string
-  name: string
-  html_url: string
-  bio: string
-  avatar_url: string
-  company?: string
-  followers: number
-}
+import { BlogContext } from '../../../../contexts/BlogContext'
 
 export function Profile() {
-  const [profileData, setProfileData] = useState<ProfileDataType>(
-    {} as ProfileDataType,
-  )
-
-  async function fetchProfileData() {
-    const response = await api.get('/users/lucasadsr')
-    setProfileData(response.data)
-  }
-
-  useEffect(() => {
-    fetchProfileData()
-  }, [])
+  const { profileData } = useContext(BlogContext)
 
   return (
     <ProfileContainer>
