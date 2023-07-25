@@ -28,6 +28,7 @@ interface PostsType {
 interface BlogContextType {
   profileData: ProfileDataType
   posts: PostsType
+  fetchPosts: (q: string) => Promise<void>
 }
 
 interface BlogContextProviderProps {
@@ -47,14 +48,24 @@ export function BlogContextProvider({ children }: BlogContextProviderProps) {
     setProfileData(response.data)
   }
 
-  async function fetchPosts() {
-    const reponse = await api.get('/search/issues', {
-      params: {
-        q: 'repo:lucasadsr/github-blog',
-      },
-    })
+  async function fetchPosts(q?: string) {
+    if (q) {
+      const reponse = await api.get('/search/issues', {
+        params: {
+          q: `${q} repo:lucasadsr/github-blog`,
+        },
+      })
 
-    setPosts(reponse.data)
+      setPosts(reponse.data)
+    } else {
+      const reponse = await api.get('/search/issues', {
+        params: {
+          q: `repo:lucasadsr/github-blog`,
+        },
+      })
+
+      setPosts(reponse.data)
+    }
   }
 
   useEffect(() => {
@@ -63,7 +74,7 @@ export function BlogContextProvider({ children }: BlogContextProviderProps) {
   }, [])
 
   return (
-    <BlogContext.Provider value={{ profileData, posts }}>
+    <BlogContext.Provider value={{ profileData, posts, fetchPosts }}>
       {children}
     </BlogContext.Provider>
   )
